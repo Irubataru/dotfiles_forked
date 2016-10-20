@@ -43,8 +43,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/glesaaen/.config/awesome/themes/redhalo/theme.lua")
+beautiful.wallpaper = "/home/glesaaen/.config/awesome/wallpapers/gw2-1.jpg"
 
---Cycling wallpapers
+for s = 1, screen.count() do		
+	gears.wallpaper.centered(beautiful.wallpaper, s, "#000000")		
+end
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -94,7 +97,7 @@ end
 -- Create a laucher widget and a main menu
 applications = {
 	--{"Chrome", "google-chrome-stable"},
-	{"Google Chrome", "google-chrome-stable"},
+	{"Google Chrome", "google-chrome"},
   {"Google Music", "google-play-music-desktop-player"},
   {"Spotify", "spotify"},
 	{"Mathematica", "mathematica"},
@@ -542,4 +545,8 @@ function run_once(prg,arg_string,pname,screen)
 	end
 end
 
+run_once("xautolock", "-time 15 -locker slock")
+run_once("unclutter"," -noevents");
+run_once("dropbox","start");
+run_once("setxkbmap", 'no -option "ctrl:nocaps"')
 -- }}}
