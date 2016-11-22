@@ -101,7 +101,8 @@ applications = {
   {"Google Music", "google-play-music-desktop-player"},
   {"Spotify", "spotify"},
 	{"Mathematica", "mathematica"},
-	{"Skype", "skype"}
+	{"Skype", "skype"},
+  {"GitKraken", "gitkraken"}
 }
 
 directories = {
@@ -433,7 +434,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = { border_width = 0,
                      border_color = beautiful.border_normal,
                      size_hints_honor = false,
                      focus = awful.client.focus.filter,
@@ -545,8 +546,11 @@ function run_once(prg,arg_string,pname,screen)
 	end
 end
 
+run_once("setxkbmap", 'no -option "ctrl:nocaps"')
 run_once("xautolock", "-time 15 -locker slock")
 run_once("unclutter"," -noevents");
+run_once("compton")
+run_once("conky")
+
 run_once("dropbox","start");
-run_once("setxkbmap", 'no -option "ctrl:nocaps"')
 -- }}}
