@@ -1,1 +1,0 @@
-export TEXMFHOME=$HOME/.texmf
