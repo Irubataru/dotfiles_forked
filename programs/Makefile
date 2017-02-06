@@ -1,5 +1,5 @@
 CXXFLAGS := -std=c++1y -Isrc/include
-LDFLAGS  := 
+LDFLAGS  := -lboost_program_options
 
 SRCS     := $(wildcard src/*.cpp)
 EXECS    := $(SRCS:src/%.cpp=%)
